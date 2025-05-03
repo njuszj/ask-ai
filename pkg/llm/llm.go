@@ -11,6 +11,7 @@ import (
 type Config struct {
 	APIKey      string
 	APIEndpoint string
+	ModelName   string
 	Temperature float64
 }
 
@@ -44,7 +45,7 @@ func (c *Client) Ask(ctx context.Context, question string, opts ...Option) (stri
 	if config.APIKey == "" {
 		return "", fmt.Errorf("API key is required")
 	}
-	
+
 	if config.APIEndpoint == "" {
 		return "", fmt.Errorf("API endpoint is required")
 	}
@@ -75,4 +76,4 @@ func WithAPIEndpoint(endpoint string) Option {
 	return func(c *Config) {
 		c.APIEndpoint = endpoint
 	}
-} 
+}
