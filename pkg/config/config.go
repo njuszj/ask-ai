@@ -9,8 +9,9 @@ import (
 )
 
 type Config struct {
-	APIKey      string  `mapstructure:"api_key"`
-	APIEndpoint string  `mapstructure:"api_endpoint"`
+	APIKey      string  `mapstructure:"apiKey"`
+	APIEndpoint string  `mapstructure:"apiEndpoint"`
+	ModelName   string  `mapstructure:"modelName"`
 	Temperature float64 `mapstructure:"temperature"`
 }
 
@@ -21,13 +22,13 @@ func LoadConfig() (*Config, error) {
 	// Set config file name and paths
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
-	
+
 	// Add config paths
 	home, err := os.UserHomeDir()
 	if err != nil {
 		return nil, fmt.Errorf("failed to get user home directory: %w", err)
 	}
-	
+
 	viper.AddConfigPath(filepath.Join(home, ".ask-ai"))
 	viper.AddConfigPath(".")
 
@@ -74,4 +75,4 @@ func SaveConfig(config *Config) error {
 	}
 
 	return nil
-} 
+}

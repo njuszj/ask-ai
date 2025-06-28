@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/njuszj/ask-ai/internal/chat"
+	"github.com/njuszj/ask-ai/pkg/chat"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -17,7 +17,7 @@ var RootCmd = &cobra.Command{
 	Long: `ask-ai (aa) is an easy-use terminal tool to chat with llm.
 You can use it in two modes:
 1. Direct question mode: aa "your question here"
-2. Interactive mode: aa -i`,
+2. Interactive mode: aa -i or aa --interactive or aa chat`,
 	Run: func(cmd *cobra.Command, args []string) {
 		// Handle interactive mode
 		if interactive, _ := cmd.Flags().GetBool("interactive"); interactive {
@@ -31,7 +31,7 @@ You can use it in two modes:
 			os.Exit(1)
 		}
 
-		// Load config
+		// Load config from default path
 		home, err := os.UserHomeDir()
 		if err != nil {
 			fmt.Printf("Error getting home directory: %v\n", err)

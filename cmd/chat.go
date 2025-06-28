@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/njuszj/ask-ai/internal/chat"
+	"github.com/njuszj/ask-ai/pkg/chat"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -63,7 +63,7 @@ You can change settings during the session using commands:
 			}
 
 			// Handle commands
-			if strings.HasPrefix(input, "set ") {
+			if strings.HasPrefix(input, ".set ") {
 				chat.HandleSetCommand(input, state)
 				continue
 			}

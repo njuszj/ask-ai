@@ -19,12 +19,12 @@ type State struct {
 // ShowHelp displays available commands
 func ShowHelp() {
 	fmt.Println("Available commands:")
-	fmt.Println("  set temp <value>    - Change temperature")
-	fmt.Println("  set key <value>     - Change API key")
-	fmt.Println("  set endpoint <value> - Change API endpoint")
-	fmt.Println("  show                - Show current settings")
-	fmt.Println("  help                - Show this help message")
-	fmt.Println("  exit                - Exit the chat session")
+	fmt.Println("  .set temp <value>     - Change temperature")
+	fmt.Println("  .set key <value>      - Change API key")
+	fmt.Println("  .set endpoint <value> - Change API endpoint")
+	fmt.Println("  .show                 - Show current settings")
+	fmt.Println("  .help                 - Show this help message")
+	fmt.Println("  .exit                 - Exit the chat session")
 }
 
 // HandleSetCommand processes set commands
